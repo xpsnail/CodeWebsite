@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>云笔记资料 · 高血压</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #0891B2;
+      --color-on-primary: #FFFFFF;
+      --color-secondary: #22D3EE;
+      --color-accent: #059669;
+      --color-background: #ECFEFF;
+      --color-foreground: #164E63;
+      --color-muted: #E8F1F6;
+      --color-border: #A5F3FC;
+      --color-ring: #0891B2;
+      --shadow: 0 16px 40px rgba(8, 145, 178, 0.12);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Noto Sans SC", "Figtree", sans-serif;
+      color: var(--color-foreground);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(34, 211, 238, 0.28), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(5, 150, 105, 0.16), transparent 28%),
+        var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      width: min(560px, 100%);
+    }
+
+    .card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 32px 32px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-muted);
+      color: var(--color-primary);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-family: "Figtree", "Noto Sans SC", sans-serif;
+      font-size: clamp(28px, 5vw, 36px);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 28px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #3A7184;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 14px;
+      background: var(--color-accent);
+      color: var(--color-on-primary);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.22);
+    }
+
+    .link-btn:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+
+    .link-btn:focus-visible {
+      outline: 4px solid var(--color-ring);
+      outline-offset: 3px;
+    }
+
+    .link-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .link-btn {
+        transition: none;
+      }
+
+      .link-btn:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 3.75h10A2.25 2.25 0 0 1 19.25 6v14.25L12 16.5l-7.25 3.75V6A2.25 2.25 0 0 1 7 3.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        健康资料
+      </div>
+      <h1>云笔记公开资料</h1>
+      <p>点击下方链接，即可打开对应 PDF 文档。</p>
+      <a
+        class="link-btn"
+        href="https://gitee.com/xpsnail/clooud-note-public/releases/download/v1.0-vc14/%E9%AB%98%E8%A1%80%E5%8E%8B.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M8 7.5h8.25V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 15.5 16.25 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        高血压
+      </a>
+    </section>
+  </main>
+</body>
+</html>
