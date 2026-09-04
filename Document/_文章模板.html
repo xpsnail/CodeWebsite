@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章标题</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body class="has-topbar">
+  <!-- 固定顶部返回栏：复制新文章时保留这段 -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back-btn" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 6.5 8.5 12l6 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        返回
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <header class="article-header">
+        <h1>文章标题</h1>
+        <p class="subtitle">可选副标题 / 来源</p>
+      </header>
+
+      <!-- 正文：可用 ol.guide（编号清单）或 div.article-body（段落+小标题） -->
+      <div class="article-body">
+        <p>正文段落……</p>
+        <h2>小节标题</h2>
+        <ol>
+          <li><strong>要点</strong>：说明文字。</li>
+        </ol>
+      </div>
+
+      <!-- 可选脚注
+      <footer class="doc-footer">
+        <div>来源：……</div>
+      </footer>
+      -->
+    </article>
+  </main>
+</body>
+</html>

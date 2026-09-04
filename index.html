@@ -3,216 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云笔记资料 · 高血压</title>
+  <title>云笔记公开资料</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-primary: #0891B2;
-      --color-on-primary: #FFFFFF;
-      --color-secondary: #22D3EE;
-      --color-accent: #059669;
-      --color-background: #ECFEFF;
-      --color-foreground: #164E63;
-      --color-muted: #E8F1F6;
-      --color-border: #A5F3FC;
-      --color-ring: #0891B2;
-      --shadow: 0 16px 40px rgba(8, 145, 178, 0.12);
-      --radius: 20px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-    }
-
-    body {
-      font-family: "Noto Sans SC", "Figtree", sans-serif;
-      color: var(--color-foreground);
-      background:
-        radial-gradient(circle at 12% 18%, rgba(34, 211, 238, 0.28), transparent 32%),
-        radial-gradient(circle at 88% 8%, rgba(5, 150, 105, 0.16), transparent 28%),
-        var(--color-background);
-      display: flex;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .page {
-      width: min(720px, 100%);
-      align-self: center;
-    }
-
-    .card {
-      background: #FFFFFF;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 36px 32px 32px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-muted);
-      color: var(--color-primary);
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .badge svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    h1 {
-      margin: 18px 0 8px;
-      font-family: "Figtree", "Noto Sans SC", sans-serif;
-      font-size: clamp(28px, 5vw, 36px);
-      line-height: 1.2;
-    }
-
-    .lead {
-      margin: 0 0 28px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #3A7184;
-    }
-
-    .entry-btn,
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 12px 22px;
-      border: 0;
-      border-radius: 14px;
-      font-family: inherit;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
-    }
-
-    .entry-btn {
-      background: var(--color-accent);
-      color: var(--color-on-primary);
-      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.22);
-    }
-
-    .entry-btn:hover {
-      background: #047857;
-      transform: translateY(-1px);
-    }
-
-    .back-btn {
-      background: var(--color-muted);
-      color: var(--color-primary);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .back-btn:hover {
-      background: #d7eaf1;
-    }
-
-    .entry-btn:focus-visible,
-    .back-btn:focus-visible {
-      outline: 4px solid var(--color-ring);
-      outline-offset: 3px;
-    }
-
-    .entry-btn svg,
-    .back-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .article-header h1 {
-      margin-bottom: 10px;
-    }
-
-    .hospital {
-      margin: 0 0 24px;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #3A7184;
-    }
-
-    .guide {
-      margin: 0;
-      padding-left: 1.35em;
-      display: grid;
-      gap: 18px;
-    }
-
-    .guide > li {
-      font-size: 16px;
-      line-height: 1.85;
-    }
-
-    .guide strong {
-      font-weight: 700;
-      color: #0E4F63;
-    }
-
-    .subblock {
-      margin: 10px 0 0;
-      padding: 14px 16px;
-      background: var(--color-muted);
-      border-radius: 12px;
-    }
-
-    .subblock p {
-      margin: 0 0 10px;
-    }
-
-    .subblock p:last-child {
-      margin-bottom: 0;
-    }
-
-    .tips {
-      margin: 8px 0 0;
-      padding-left: 1.2em;
-    }
-
-    .tips li {
-      margin: 6px 0;
-    }
-
-    .view[hidden] {
-      display: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .entry-btn,
-      .back-btn {
-        transition: none;
-      }
-
-      .entry-btn:hover,
-      .back-btn:hover {
-        transform: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/site.css">
 </head>
-<body>
+<body class="is-home">
   <main class="page">
-    <section id="home" class="card view">
+    <section class="card">
       <div class="badge">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M7 3.75h10A2.25 2.25 0 0 1 19.25 6v14.25L12 16.5l-7.25 3.75V6A2.25 2.25 0 0 1 7 3.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
@@ -221,68 +20,51 @@
       </div>
       <h1>云笔记公开资料</h1>
       <p class="lead">点击下方条目，查看对应指导内容。</p>
-      <button class="entry-btn" type="button" data-open-guide>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M8 8.5h8M8 12h8M8 15.5h5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-        高血压
-      </button>
+      <div class="entry-list" id="entry-list" aria-live="polite">
+        <p class="lead" style="margin:0">正在加载文章列表…</p>
+      </div>
     </section>
-
-    <article id="guide" class="card view" hidden>
-      <button class="back-btn" type="button" data-close-guide>
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M14.5 6.5 8.5 12l6 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        返回
-      </button>
-      <header class="article-header">
-        <h1>高血压患者出院指导</h1>
-        <p class="hospital">郑州市第三人民医院心血管内科病区</p>
-      </header>
-      <ol class="guide">
-        <li>主食以粗粮为主，7‑8分饱为好，少吃甜食。</li>
-        <li>
-          <strong>膳食限盐</strong>：人均限盐量北方先降至8克/日，再降至6克/日，南方可控制在6克以下。每天所吃食物本身就含2‑3克盐，因此每日调味品的食盐要控制在5克以下较合适。1小盐勺2g，1啤酒瓶盖去掉橡胶垫6g。
-          <div class="subblock">
-            <p><strong>减盐窍门</strong>：</p>
-            <ol class="tips">
-              <li>人工制作的食品含盐量较多，应尽量少吃；提倡多生吃新鲜的蔬菜。</li>
-              <li>菜熟九成再放盐，利于控制体重与减肥：提倡合理膳食控制体重，多去两斤肉，多长两年寿。减少摄入的热卡，适度增加有氧运动量，使体重指数保持在18.5‑22.9[体重指数=体重(kg)/身高 2(m²)]</li>
-            </ol>
-            <p><strong>饮食原则</strong>：多吃新鲜的蔬菜和瓜果，适当多吃含蛋白质高的食物如：鱼、虾，可利用醋糖、芝麻酱、香料来增加食物的味道，可加蒜、葱、胡椒等来变换风味和口味。</p>
-          </div>
-        </li>
-        <li><strong>限制饮酒与咖啡，提倡戒烟</strong>：提倡不饮或少饮酒与咖啡，不酗酒、每日饮酒量应≤1两白酒(酒精30克的量)，提倡不吸烟，已吸烟者劝其戒烟或吸烟&lt;5支/日。对于高血压患者建议不要饮酒，如饮可喝红葡萄酒，每日不超过 50‑100ml，红葡萄的皮有“逆转醇”，可抗衰老，还是氧化剂。</li>
-        <li><strong>合理膳食，吃的恰当，身体健康</strong>，食物多样谷类为主，增加新鲜蔬菜和水果，喝牛奶，每日所吃脂肪的热量&lt;30%总热量，饱和脂肪&lt;10%(高血压患者&lt;7%)。</li>
-        <li><strong>增加及保持适量有氧运动</strong>：学会一种适合自己的有氧运动方法：散步、慢跑、倒退行、骑车、游泳、太极拳、有氧舞，跳绳、爬山、踢毽等。学会数脉搏，以分钟为单位，活动后最适宜的脉搏=170‑年龄。</li>
-        <li><strong>情绪控制</strong>，对容易激动的患者，指导其保持平静的心境，避免情绪激动及过度紧张，焦虑。遇事要沉着冷静，当有较大精神压力时应设法释放，如向朋友、亲人倾吐，与他们交谈等，学会用“松驰”的方法，使激动的情绪通过转移而缓解。对忧郁的患者，鼓励参加轻松愉快的业余活动，从而维持稳定的血压。</li>
-        <li><strong>心理平衡指导</strong>：情绪激动常常是诱发急性心血管病和脑卒中中的因素，尽量避免过累、紧张、激动、焦虑、保证充足睡眠，保持宽松、宁静、愉快的心情。</li>
-      </ol>
-    </article>
   </main>
   <script>
     (function () {
-      var home = document.getElementById("home");
-      var guide = document.getElementById("guide");
-      var page = document.querySelector(".page");
+      var listEl = document.getElementById("entry-list");
+      var iconSvg =
+        '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+        '<path d="M8 8.5h8M8 12h8M8 15.5h5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+        "</svg>";
 
-      function showGuide() {
-        home.hidden = true;
-        guide.hidden = false;
-        page.style.alignSelf = "flex-start";
-        window.scrollTo(0, 0);
+      function showError(msg) {
+        listEl.innerHTML = '<p class="lead" style="margin:0">' + msg + "</p>";
       }
 
-      function showHome() {
-        guide.hidden = true;
-        home.hidden = false;
-        page.style.alignSelf = "center";
-        window.scrollTo(0, 0);
+      function render(articles) {
+        if (!articles || !articles.length) {
+          showError("暂无文章。请在 Document/articles.json 中添加条目。");
+          return;
+        }
+
+        listEl.innerHTML = "";
+        articles.forEach(function (item, index) {
+          var a = document.createElement("a");
+          var style = item.style || (index % 2 === 0 ? "primary" : "secondary");
+          a.className = style === "secondary" ? "entry-btn secondary" : "entry-btn";
+          a.href = "./Document/" + encodeURI(item.file);
+          a.innerHTML = iconSvg + " " + (item.title || item.file);
+          listEl.appendChild(a);
+        });
       }
 
-      document.querySelector("[data-open-guide]").addEventListener("click", showGuide);
-      document.querySelector("[data-close-guide]").addEventListener("click", showHome);
+      fetch("./Document/articles.json", { cache: "no-store" })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(render)
+        .catch(function () {
+          showError(
+            "无法加载文章列表。请通过本地服务器或 GitHub Pages 打开本站（不要直接双击用 file:// 打开），并确认 Document/articles.json 存在。"
+          );
+        });
     })();
   </script>
 </body>
