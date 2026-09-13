@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>码上点单</title>
+  <link rel="stylesheet" href="./css/site.css" />
+</head>
+<body>
+  <p id="err" class="err hidden"></p>
+
+  <div id="pageMenu">
+    <header class="header">
+      <h1 id="shopName">码上点单</h1>
+      <div class="meta" id="meta"></div>
+    </header>
+
+    <div class="section-label">已点</div>
+    <div class="cart-box" id="cartBox">
+      <div id="emptyCart" class="cart-empty">点击下方菜品加入</div>
+      <div id="rowCart" class="cart-chips hidden"></div>
+    </div>
+
+    <div class="cats" id="cats"></div>
+    <div class="list-wrap" id="listWrap">
+      <div class="list" id="list"></div>
+    </div>
+    <div class="bar">
+      <div>
+        <div id="barCount">尚未选菜</div>
+        <div class="sum" id="barSum">¥0.00</div>
+      </div>
+      <button type="button" id="btnCheckout">去下单</button>
+    </div>
+  </div>
+
+  <div id="pageConfirm" class="panel hidden">
+    <h2>确认订单</h2>
+    <div id="confirmList"></div>
+    <label>备注（可选）</label>
+    <textarea id="remark" rows="3" placeholder="少辣、不要香菜…"></textarea>
+    <p>
+      <button type="button" class="btn ghost" id="btnBack">返回改菜</button>
+      <button type="button" class="btn" id="btnSubmit">提交订单</button>
+    </p>
+  </div>
+
+  <div id="pageDone" class="panel hidden">
+    <h2 class="ok">下单成功</h2>
+    <p>订单号：<strong id="doneNo"></strong></p>
+    <p id="doneMsg"></p>
+  </div>
+
+  <script src="./js/order.js"></script>
+</body>
+</html>

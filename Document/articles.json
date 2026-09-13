@@ -1,0 +1,12 @@
+[
+  {
+    "title": "高血压",
+    "file": "高血压.html",
+    "style": "primary"
+  },
+  {
+    "title": "糖尿病",
+    "file": "糖尿病.html",
+    "style": "secondary"
+  }
+]

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>页面未找到 · 码上知道</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- 404 页必须自带样式：外链 CSS 会按错误 URL 解析，常加载失败 -->
+  <style>
+    :root {
+      --primary: #0891B2;
+      --accent: #059669;
+      --bg: #ECFEFF;
+      --fg: #164E63;
+      --muted-text: #3A7184;
+      --border: #A5F3FC;
+      --muted: #E8F1F6;
+      --shadow: 0 16px 40px rgba(8, 145, 178, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Noto Sans SC", "Figtree", sans-serif;
+      color: var(--fg);
+      background:
+        radial-gradient(circle at 12% 18%, rgba(34, 211, 238, 0.28), transparent 32%),
+        radial-gradient(circle at 88% 8%, rgba(5, 150, 105, 0.16), transparent 28%),
+        var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+
+    .panel {
+      width: min(420px, 100%);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 36px 28px 28px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--muted);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .badge svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .code {
+      margin: 22px 0 6px;
+      font-family: "Figtree", "Noto Sans SC", sans-serif;
+      font-size: clamp(56px, 14vw, 72px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      color: #67E8F9;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-family: "Figtree", "Noto Sans SC", sans-serif;
+      font-size: clamp(22px, 5vw, 26px);
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .lead {
+      margin: 0 0 24px;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted-text);
+    }
+
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.22);
+      transition: background-color 200ms ease, transform 200ms ease;
+    }
+
+    .home-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .home-btn:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+
+    .home-btn:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    .hint {
+      margin: 16px 0 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #6B8F9C;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .home-btn { transition: none; }
+      .home-btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M12 8v5.2M12 15.8h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      暂时找不到
+    </div>
+    <p class="code" aria-hidden="true">404</p>
+    <h1>这篇资料还没准备好</h1>
+    <p class="lead">可能是链接有误，或内容尚未上传。请先返回首页，选择其它已上线的指导阅读。</p>
+    <a class="home-btn" id="home-link" href="/CodeWebsite/">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14.5 6.5 8.5 12l6 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      返回首页
+    </a>
+    <p class="hint">若刚更新站点，可稍等一两分钟后刷新再试。</p>
+  </main>
+  <script>
+    (function () {
+      // 兼容本地预览与 GitHub Pages 项目路径
+      var link = document.getElementById("home-link");
+      var path = location.pathname || "";
+      if (path.indexOf("/CodeWebsite/") === 0) {
+        link.href = "/CodeWebsite/";
+      } else if (location.protocol === "file:") {
+        link.href = "index.html";
+      } else {
+        link.href = "/";
+      }
+    })();
+  </script>
+</body>
+</html>
