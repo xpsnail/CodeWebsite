@@ -1,0 +1,125 @@
+{
+    "version":  1,
+    "generated":  "2026-09-14T18:51:19.1698481+08:00",
+    "baseUrl":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com",
+    "groups":  [
+                   {
+                       "id":  "00000000-0000-0000-0000-000000000001",
+                       "name":  "中文儿歌",
+                       "folder":  "01中文儿歌",
+                       "sortOrder":  1
+                   }
+               ],
+    "tracks":  [
+                   {
+                       "id":  "994ba11e-2955-3435-81ea-ddcb7228d257",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "001数鸭子",
+                       "objectKey":  "codeplay/audio/01中文儿歌/001数鸭子.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/001%E6%95%B0%E9%B8%AD%E5%AD%90.mp3",
+                       "sha256":  "9137f8a5909c3e001f83cb137d678545481ad65e0db4a780c0a2e813b580c9b4",
+                       "size":  3378199,
+                       "sortOrder":  1
+                   },
+                   {
+                       "id":  "28a72c86-e58a-3c69-aaa1-b07fa6db73f5",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "002一分钱",
+                       "objectKey":  "codeplay/audio/01中文儿歌/002一分钱.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/002%E4%B8%80%E5%88%86%E9%92%B1.mp3",
+                       "sha256":  "e122b254301dbd9c11545d812a8d4f245d3acc33e37dad7d3da5b9139dd6740c",
+                       "size":  2843211,
+                       "sortOrder":  2
+                   },
+                   {
+                       "id":  "8277190e-67eb-3fb7-b30d-e4b441649b83",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "003铃儿响叮当",
+                       "objectKey":  "codeplay/audio/01中文儿歌/003铃儿响叮当.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/003%E9%93%83%E5%84%BF%E5%93%8D%E5%8F%AE%E5%BD%93.mp3",
+                       "sha256":  "eec5f4dbaf6e85430cb22a0aad9317e6de7f7f59f208193f4bdc4b69b512c416",
+                       "size":  3646738,
+                       "sortOrder":  3
+                   },
+                   {
+                       "id":  "19b2b66e-4ba9-310c-8d16-88ceb3d04760",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "004小燕子",
+                       "objectKey":  "codeplay/audio/01中文儿歌/004小燕子.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/004%E5%B0%8F%E7%87%95%E5%AD%90.mp3",
+                       "sha256":  "6df6fab3a2a01ed187b292349d21f54e2cb0ce6cdd624f2f6d23094ca0b627df",
+                       "size":  3076223,
+                       "sortOrder":  4
+                   },
+                   {
+                       "id":  "5a8e49a6-8246-39a1-aa6b-566928e0782d",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "005拍手歌",
+                       "objectKey":  "codeplay/audio/01中文儿歌/005拍手歌.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/005%E6%8B%8D%E6%89%8B%E6%AD%8C.mp3",
+                       "sha256":  "09d6b99991cd999187cc65911ee511ee7848c9128cb3ce01ccb6511701edaa50",
+                       "size":  3019799,
+                       "sortOrder":  5
+                   },
+                   {
+                       "id":  "6751417f-2453-381a-88a9-a5eebb752b6e",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "006小鸭子",
+                       "objectKey":  "codeplay/audio/01中文儿歌/006小鸭子.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/006%E5%B0%8F%E9%B8%AD%E5%AD%90.mp3",
+                       "sha256":  "5afc9cc200f2afdbeedcacbe851ea7585f08328c274a808267255a1040e44764",
+                       "size":  2499440,
+                       "sortOrder":  6
+                   },
+                   {
+                       "id":  "9e452919-1889-3689-b002-50dbdc4f7a49",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "007春天在哪里",
+                       "objectKey":  "codeplay/audio/01中文儿歌/007春天在哪里.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/007%E6%98%A5%E5%A4%A9%E5%9C%A8%E5%93%AA%E9%87%8C.mp3",
+                       "sha256":  "f07dbaba121f5ea010887dae4018ceb7f96448e2be22a1e0e448669857f21672",
+                       "size":  4216207,
+                       "sortOrder":  7
+                   },
+                   {
+                       "id":  "638446b3-822e-37f1-976e-133b35d7a236",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "008拔萝卜",
+                       "objectKey":  "codeplay/audio/01中文儿歌/008拔萝卜.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/008%E6%8B%94%E8%90%9D%E5%8D%9C.mp3",
+                       "sha256":  "b12c2317e39cf7fcac1372ac133f399f613adc73301f06b4502fd0981fbd4b51",
+                       "size":  4187995,
+                       "sortOrder":  8
+                   },
+                   {
+                       "id":  "68962585-c297-3ec4-948c-452dcb6afd98",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "009卖报歌",
+                       "objectKey":  "codeplay/audio/01中文儿歌/009卖报歌.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/009%E5%8D%96%E6%8A%A5%E6%AD%8C.mp3",
+                       "sha256":  "05e04e26d816a8471275cf0efa80d79b5ad93aa1b2c802c6a0ad35d7573d1b8c",
+                       "size":  3760631,
+                       "sortOrder":  9
+                   },
+                   {
+                       "id":  "823d7eba-98e8-3c5c-b708-9448416b5891",
+                       "groupId":  "00000000-0000-0000-0000-000000000001",
+                       "groupFolder":  "01中文儿歌",
+                       "displayName":  "010虫儿飞",
+                       "objectKey":  "codeplay/audio/01中文儿歌/010虫儿飞.mp3",
+                       "url":  "https://codeplay-audio-1484782458.cos.ap-shanghai.myqcloud.com/codeplay/audio/01%E4%B8%AD%E6%96%87%E5%84%BF%E6%AD%8C/010%E8%99%AB%E5%84%BF%E9%A3%9E.mp3",
+                       "sha256":  "f94fb8fee09c4dbdcad3fef138d1f85609cd007d470cc3c681b23fefb55cd418",
+                       "size":  7465840,
+                       "sortOrder":  10
+                   }
+               ]
+}

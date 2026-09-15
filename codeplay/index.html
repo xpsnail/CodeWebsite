@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>码上听</title>
+  <style>
+    :root {
+      --ink: #9a3412;
+      --bg: #fff7ed;
+      --card: #ffffff;
+      --muted: #78716c;
+      --btn: #ea580c;
+      --line: #fed7aa;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #fed7aa 0%, var(--bg) 55%);
+      color: #1c1917;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 40px;
+    }
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(154, 52, 18, 0.12);
+      padding: 28px 22px 22px;
+      text-align: center;
+    }
+    .cache-pill {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 11px;
+      line-height: 1.3;
+      color: var(--muted);
+      background: #fff7ed;
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+    .cache-pill.ok { color: #c2410c; font-weight: 600; }
+    .brand {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+    .brand h1 {
+      grid-column: 2;
+      font-size: 22px;
+      margin: 0;
+      text-align: center;
+    }
+    .brand .badge {
+      grid-column: 3;
+      justify-self: start;
+      margin: 0 0 0 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      background: #ffedd5;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+    .track-line {
+      overflow: hidden;
+      margin: 0 0 16px;
+      min-height: 1.6em;
+    }
+    .track-scroll {
+      display: inline-flex;
+      align-items: baseline;
+      white-space: nowrap;
+      gap: 32px;
+    }
+    .track-unit {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .title { font-size: 20px; font-weight: 700; margin: 0; }
+    .group { color: var(--muted); font-size: 13px; margin: 0; }
+    .track-scroll.is-marquee {
+      animation: codeplay-marquee 10s linear infinite;
+    }
+    @keyframes codeplay-marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    audio { width: 100%; margin: 8px 0 16px; }
+    button.play {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--btn);
+    }
+    button.play:disabled { opacity: 0.45; }
+    .msg { min-height: 0; color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+    .msg.err { color: #b91c1c; min-height: 1.4em; }
+    .promo {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+    }
+    .promo h2 {
+      font-size: 16px;
+      margin: 0 0 6px;
+      text-align: center;
+    }
+    .promo .lead {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+    a.dl {
+      display: block;
+      width: 100%;
+      border: 2px solid var(--btn);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--btn);
+      text-align: center;
+      text-decoration: none;
+      background: #fff7ed;
+      margin-bottom: 12px;
+    }
+    .promo ul {
+      margin: 0;
+      padding: 0 0 0 1.1em;
+      color: #44403c;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .promo li { margin: 0 0 6px; }
+    .series {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      background: #fff7ed;
+      border-radius: 12px;
+      font-size: 12px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .fine {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .wxmask {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.55);
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 12px 16px;
+      z-index: 20;
+    }
+    .wxmask[hidden] { display: none; }
+    .wxbox {
+      background: #fff;
+      color: #1c1917;
+      border-radius: 14px;
+      padding: 14px 16px;
+      max-width: 280px;
+      font-size: 14px;
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+    .wxbox button {
+      margin-top: 10px;
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 10px;
+      background: var(--btn);
+      color: #fff;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="cache-pill" id="cache">检查缓存…</div>
+    <div class="brand">
+      <h1>码上听</h1>
+      <span class="badge">CODEPLAY</span>
+    </div>
+    <div class="track-line" id="trackline">
+      <div class="track-scroll" id="trackscroll">
+        <span class="track-unit" id="trackunit">
+          <span class="title" id="name">正在打开…</span>
+          <span class="group" id="group"></span>
+        </span>
+      </div>
+    </div>
+    <audio id="player" playsinline webkit-playsinline controls preload="none"></audio>
+    <button class="play" id="play" type="button" disabled>加载中</button>
+    <p class="msg" id="msg"></p>
+
+    <section class="promo" aria-label="下载码上听 App">
+      <h2>下载 App 享用完整功能</h2>
+      <p class="lead">安装「码上听」后：全库点播、省流量缓存、后台播放、自制扫码内容。</p>
+      <a class="dl" id="dl" href="https://gitee.com/xpsnail/code-play/releases">下载码上听 App</a>
+      <ul>
+        <li><strong>全库点播：</strong>儿歌、诗词、英语学习等全部分类</li>
+        <li><strong>省流量缓存：</strong>听过的曲目本地缓存不耗流量</li>
+        <li><strong>后台播放：</strong>回到桌面或锁屏后仍可继续听</li>
+        <li><strong>自制扫码内容：</strong>导入自己的音频，生成二维码</li>
+      </ul>
+      <p class="series">码上成才系列：码上听是学习套件之一，扫码即听、即读、即练。后续还有点单、宣教等「码上」应用，一套纸质码习惯通用于学习与服务场景。</p>
+      <p class="fine">仅 Android。微信内请点右上角「···」→「在浏览器中打开」再下载。需允许安装未知来源。正式包由后续 Gitee Release 提供。</p>
+    </section>
+  </main>
+
+  <div class="wxmask" id="wxmask" hidden>
+    <div class="wxbox">
+      <strong>请在浏览器中打开</strong>
+      <p style="margin:8px 0 0">微信不能直接安装 App。请点右上角「···」，选择「在浏览器中打开」，再点下载。</p>
+      <button type="button" id="wxok">知道了</button>
+    </div>
+  </div>
+
+  <script src="./player.js"></script>
+  <script>
+    (function () {
+      var RELEASES = "https://gitee.com/xpsnail/code-play/releases";
+      var wechat = /MicroMessenger/i.test(navigator.userAgent || "");
+      var btn = document.getElementById("dl");
+      var mask = document.getElementById("wxmask");
+      btn.setAttribute("href", RELEASES);
+      btn.addEventListener("click", function (e) {
+        if (!wechat) return;
+        e.preventDefault();
+        mask.hidden = false;
+      });
+      document.getElementById("wxok").addEventListener("click", function () {
+        mask.hidden = true;
+      });
+      mask.addEventListener("click", function (e) {
+        if (e.target === mask) mask.hidden = true;
+      });
+    })();
+  </script>
+</body>
+</html>
