@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>千防万防，跌倒难防——步步惊心</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+  <style>
+    /* 本页专用：把原 PDF 三栏排成手机单列 */
+    .fall-page {
+      --fall-red: #c62828;
+      --fall-red-soft: #ffe8e8;
+      --fall-ink: #333333;
+      --fall-muted: #666666;
+    }
+
+    .fall-page .card {
+      padding: 20px 16px 28px;
+      border-color: #f0c6c6;
+    }
+
+    .fall-hero {
+      margin: -4px -4px 18px;
+      border-radius: 14px;
+      border: 1px solid #f0c6c6;
+      background: #fff;
+      min-height: 168px;
+      padding: 16px 10px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 6px 8px;
+      align-items: center;
+    }
+
+    .fall-hero-logo {
+      width: clamp(72px, 18vw, 96px);
+      height: auto;
+      display: block;
+    }
+
+    .fall-hero-title {
+      margin: 0;
+      padding: 0;
+      font-size: clamp(17px, 4.6vw, 26px);
+      line-height: 1.35;
+      font-weight: 700;
+      color: #b20000;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(178, 0, 0, 0.12);
+    }
+
+    .fall-hero-illust {
+      width: clamp(88px, 24vw, 130px);
+      height: auto;
+      display: block;
+    }
+
+    .fall-hospital {
+      margin: 8px 0 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #5b7c88;
+    }
+
+    .fall-intro {
+      margin: 0 0 22px;
+      padding: 16px 14px;
+      border: 2px solid var(--fall-red);
+      border-radius: 12px;
+      background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(180deg, #fff7f7, #fff) border-box;
+      box-shadow: inset 0 0 0 1px rgba(198, 40, 40, 0.08);
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--fall-ink);
+    }
+
+    .fall-section {
+      margin: 0 0 24px;
+    }
+
+    .fall-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .fall-h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      padding: 8px 12px;
+      border: 2px dashed var(--fall-red);
+      border-radius: 999px;
+      background: #fffaf9;
+      color: var(--fall-red);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .fall-h2 img {
+      width: 42px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .fall-h2 span {
+      flex: 1;
+      text-align: center;
+      padding-right: 42px;
+    }
+
+    .fall-text {
+      margin: 0 0 14px;
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--fall-ink);
+    }
+
+    .risk-layout {
+      display: grid;
+      gap: 14px;
+      justify-items: center;
+    }
+
+    .risk-layout > img {
+      width: min(220px, 70%);
+      height: auto;
+    }
+
+    .risk-list {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .risk-list li {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 12px 12px;
+      border-radius: 12px;
+      background: var(--fall-red-soft);
+      border: 1px solid #f5c2c2;
+    }
+
+    .risk-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ef6c00;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .risk-list p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--fall-red);
+      font-weight: 600;
+      padding-top: 8px;
+    }
+
+    .step-figure,
+    .exercise-figure {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 8px 0 12px;
+      border-radius: 12px;
+      background: #fafafa;
+    }
+
+    .purpose-box {
+      margin: 0 0 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: #f7fbfc;
+      border: 1px solid var(--color-border);
+    }
+
+    .purpose-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #0e4f63;
+    }
+
+    .purpose-box ol {
+      margin: 0;
+      padding-left: 1.2em;
+      display: grid;
+      gap: 8px;
+    }
+
+    .purpose-box li {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--fall-ink);
+    }
+
+    .dose {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--fall-red);
+      text-align: center;
+    }
+
+    .fall-slogan {
+      margin: 22px 0 8px;
+      text-align: center;
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 700;
+      color: var(--fall-red);
+      line-height: 1.5;
+    }
+
+    .fall-closing {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(16px, 4.5vw, 20px);
+      font-weight: 700;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 640px) {
+      .fall-page .card {
+        padding: 28px 28px 32px;
+      }
+
+      .risk-layout {
+        grid-template-columns: 180px 1fr;
+        align-items: center;
+      }
+
+      .risk-layout > img {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+<body class="has-topbar fall-page">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="back-btn" href="../index.html">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 6.5 8.5 12l6 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        返回
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <article class="card">
+      <header class="fall-hero" aria-label="页面标题">
+        <img class="fall-hero-logo" src="./assets/fall-prevention/hospital-logo.png" alt="郑州市第三人民医院">
+        <h1 class="fall-hero-title">千防万防，跌倒难防——步步惊心</h1>
+        <img class="fall-hero-illust" src="./assets/fall-prevention/fallen-elder.jpg" alt="">
+      </header>
+      <p class="fall-hospital">郑州市第三人民医院 · 心血管内科</p>
+
+      <p class="fall-intro">
+        目前，我国60周岁及以上人口约2.495亿，占总人口的17.9%，社会人口老龄化问题十分严峻。在美国，每小时有3名老年人因摔倒而死亡。跌倒不仅会造成软组织擦伤、骨折、脑外伤等躯体性损伤，还可能使老年人产生低落、急躁、焦虑、自信心下降等消极心理，严重影响老年人的生命健康质量。
+      </p>
+
+      <section class="fall-section" aria-labelledby="risk-title">
+        <h2 class="fall-h2" id="risk-title">
+          <img src="./assets/fall-prevention/section-bird.jpg" alt="">
+          <span>主要高危因素</span>
+        </h2>
+        <div class="risk-layout">
+          <img src="./assets/fall-prevention/risk-elder.jpg" alt="感到不适的老年人示意">
+          <ol class="risk-list">
+            <li>
+              <span class="risk-num">01</span>
+              <p>老年人：60–79岁</p>
+            </li>
+            <li>
+              <span class="risk-num">02</span>
+              <p>听觉、视觉、平衡功能障碍</p>
+            </li>
+            <li>
+              <span class="risk-num">03</span>
+              <p>体位改变：直立性低血压</p>
+            </li>
+            <li>
+              <span class="risk-num">04</span>
+              <p>营养不良、虚弱、头晕</p>
+            </li>
+            <li>
+              <span class="risk-num">05</span>
+              <p>药物作用：如降压药、降糖药、利尿药等</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="fall-section" aria-labelledby="cause-title">
+        <h2 class="fall-h2" id="cause-title">
+          <img src="./assets/fall-prevention/section-bird.jpg" alt="">
+          <span>跌倒原因</span>
+        </h2>
+        <p class="fall-text">
+          由于疾病和长期卧床，下肢肌肉松弛，血管反射减弱。起床过猛或体位改变时，肌肉收缩不足以促进静脉回流，导致下肢和脑部供血不足，从而引起乏力、站立不稳、头晕而跌倒。
+        </p>
+        <img class="step-figure" src="./assets/fall-prevention/fallen-elder.jpg" alt="老年人跌倒示意">
+      </section>
+
+      <section class="fall-section" aria-labelledby="steps-title">
+        <h2 class="fall-h2" id="steps-title">
+          <img src="./assets/fall-prevention/section-bird.jpg" alt="">
+          <span>“防跌倒”三部曲</span>
+        </h2>
+        <p class="fall-text">
+          正确起床方法：醒后先<strong>平躺 30 秒</strong>，再<strong>坐起 30 秒</strong>，然后<strong>床边站立 30 秒</strong>；若无头晕或不适，再开始行走。避免突然站起和长时间站立。
+        </p>
+        <img class="step-figure" src="./assets/fall-prevention/three-steps.jpg" alt="平躺30秒、坐起30秒、站立30秒示意图">
+      </section>
+
+      <section class="fall-section" aria-labelledby="exercise-title">
+        <h2 class="fall-h2" id="exercise-title">
+          <img src="./assets/fall-prevention/section-bird.jpg" alt="">
+          <span>“背伸、趾屈”保安全</span>
+        </h2>
+        <img class="exercise-figure" src="./assets/fall-prevention/foot-exercise.jpg" alt="勾脚保持5秒、绷脚保持5秒示意图">
+        <div class="purpose-box">
+          <h3>足背伸、趾屈运动的目的</h3>
+          <ol>
+            <li>锻炼踝关节柔韧性和灵活性；</li>
+            <li>锻炼、维持小腿肌肉力量；</li>
+            <li>增加下肢血液回流。</li>
+          </ol>
+        </div>
+        <p class="dose">20—30个/组，3–4次/日</p>
+      </section>
+
+      <p class="fall-slogan">关爱患者，预防跌倒，携手前行！</p>
+      <p class="fall-closing">您的健康，我们的守护！心血管内科</p>
+    </article>
+  </main>
+</body>
+</html>

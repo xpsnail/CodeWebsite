@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>码上知道</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/site.css">
+</head>
+<body class="is-home">
+  <main class="page">
+    <section class="card">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 3.75h10A2.25 2.25 0 0 1 19.25 6v14.25L12 16.5l-7.25 3.75V6A2.25 2.25 0 0 1 7 3.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        健康资料
+      </div>
+      <h1>码上知道</h1>
+      <p class="lead">点击下方条目，查看对应指导内容。</p>
+      <div class="entry-list" id="entry-list" aria-live="polite">
+        <p class="lead" style="margin:0">正在加载文章列表…</p>
+      </div>
+    </section>
+  </main>
+  <footer class="feedback-bar" id="feedback-box" hidden>
+    <div class="feedback-bar-inner">
+      <button type="button" class="feedback-close" id="feedback-close" aria-label="关闭反馈栏" title="关闭">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <p class="feedback-title">本页对你有帮助吗？</p>
+      <div class="feedback-choices">
+        <button type="button" class="feedback-chip primary" data-choice="有帮助">有帮助</button>
+        <button type="button" class="feedback-chip" data-choice="一般">一般</button>
+        <button type="button" class="feedback-chip muted" data-choice="无帮助">无帮助</button>
+      </div>
+      <p class="feedback-msg" id="feedback-msg" aria-live="polite"></p>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var listEl = document.getElementById("entry-list");
+      var iconSvg =
+        '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+        '<path d="M8 8.5h8M8 12h8M8 15.5h5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+        "</svg>";
+
+      function showError(msg) {
+        listEl.innerHTML = '<p class="lead" style="margin:0">' + msg + "</p>";
+      }
+
+      function render(articles) {
+        if (!articles || !articles.length) {
+          showError("暂无文章。请在 Document/articles.json 中添加条目。");
+          return;
+        }
+
+        listEl.innerHTML = "";
+        articles.forEach(function (item, index) {
+          var a = document.createElement("a");
+          var style = item.style || (index % 2 === 0 ? "primary" : "secondary");
+          a.className = style === "secondary" ? "entry-btn secondary" : "entry-btn";
+          a.href = "./Document/" + encodeURI(item.file);
+          a.innerHTML = iconSvg + " " + (item.title || item.file);
+          listEl.appendChild(a);
+        });
+      }
+
+      fetch("./Document/articles.json", { cache: "no-store" })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(render)
+        .catch(function () {
+          showError(
+            "无法加载文章列表。请通过本地服务器或 GitHub Pages 打开本站（不要直接双击用 file:// 打开），并确认 Document/articles.json 存在。"
+          );
+        });
+
+      var API =
+        "https://mywebservices-d7g2h7ghpe7c3b32c.service.tcloudbase.com/api/feedback";
+      var VISIT_KEY = "cw_home_visit_reported";
+      var SESSION_KEY = "cw_session_id";
+      var VISITOR_KEY = "cw_visitor_id";
+
+      function uuid() {
+        if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+          var r = (Math.random() * 16) | 0;
+          var v = c === "x" ? r : (r & 0x3) | 0x8;
+          return v.toString(16);
+        });
+      }
+
+      function storageGetSet(store, key) {
+        try {
+          var id = store.getItem(key);
+          if (!id) {
+            id = uuid();
+            store.setItem(key, id);
+          }
+          return id;
+        } catch (e) {
+          return "";
+        }
+      }
+
+      function collectClient() {
+        var platform = navigator.platform || "";
+        var uaData = navigator.userAgentData;
+        if (uaData) {
+          var brands = "";
+          if (uaData.brands && uaData.brands.length) {
+            brands = uaData.brands
+              .map(function (b) {
+                return b.brand;
+              })
+              .join(",");
+          }
+          platform = [uaData.platform, uaData.mobile ? "mobile" : "desktop", brands]
+            .filter(Boolean)
+            .join(" ");
+        }
+        var tz = "";
+        try {
+          tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+        } catch (e) {}
+        return {
+          sessionId: storageGetSet(sessionStorage, SESSION_KEY),
+          visitorId: storageGetSet(localStorage, VISITOR_KEY),
+          userAgent: (navigator.userAgent || "").slice(0, 500),
+          platform: String(platform).slice(0, 200),
+          language: navigator.language || "",
+          timezone: tz,
+          screen:
+            (screen.width || 0) +
+            "x" +
+            (screen.height || 0) +
+            "@" +
+            (window.devicePixelRatio || 1),
+          referrer: document.referrer ? String(document.referrer).slice(0, 300) : "",
+        };
+      }
+
+      function postEvent(extra) {
+        var body = Object.assign({ page: "home" }, collectClient(), extra);
+        return fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }).then(function (res) {
+          return res.text().then(function (text) {
+            var data = {};
+            try {
+              data = text ? JSON.parse(text) : {};
+            } catch (e) {}
+            if (!res.ok || !data.ok) throw new Error((data && data.error) || "失败");
+            return data;
+          });
+        });
+      }
+
+      // 同一标签页会话只上报一次首页访问；成功后再打标，失败可刷新重试
+      try {
+        if (!sessionStorage.getItem(VISIT_KEY)) {
+          postEvent({ event: "visit" })
+            .then(function () {
+              sessionStorage.setItem(VISIT_KEY, "1");
+            })
+            .catch(function () {});
+        }
+      } catch (e) {}
+
+      var DISMISS_KEY = "cw_feedback_dismissed";
+      var box = document.getElementById("feedback-box");
+      var msg = document.getElementById("feedback-msg");
+      var closeBtn = document.getElementById("feedback-close");
+
+      function hideFeedbackBar() {
+        if (!box) return;
+        box.hidden = true;
+        try {
+          sessionStorage.setItem(DISMISS_KEY, "1");
+        } catch (e) {}
+      }
+
+      if (box && msg) {
+        var dismissed = false;
+        try {
+          dismissed = sessionStorage.getItem(DISMISS_KEY) === "1";
+        } catch (e) {}
+        if (!dismissed) box.hidden = false;
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            hideFeedbackBar();
+          });
+        }
+
+        box.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-choice]");
+          if (!btn) return;
+          var choice = btn.getAttribute("data-choice");
+          msg.textContent = "正在提交…";
+          postEvent({ event: "feedback", choice: choice })
+            .then(function () {
+              msg.textContent = "感谢反馈！";
+            })
+            .catch(function () {
+              msg.textContent = "提交失败，请稍后重试。";
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
